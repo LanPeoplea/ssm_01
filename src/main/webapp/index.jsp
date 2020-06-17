@@ -13,6 +13,17 @@
     <meta http-equiv="Expires" content="0">
     <title>后台管理</title>
     <link href="css/login.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            ${"#userName"}.on("focus",function () {
+                $("#errorMsg").fadeOut();
+            });
+            ${"#password"}.on("focus",function () {
+                $("#errorMsg").fadeOut();
+            });
+        })
+    </script>
 </head>
 
 <body>
@@ -24,11 +35,11 @@
             <p>后台管理系统</p>
         </div>
         <form method="post" action="login/doLogin">
-            <input name="username" type="text" value="${username}" onfocus="this.value=''" placeholder="请输入用户名">
+            <input name="username" id="userName" type="text" value="${username}" onfocus="this.value=''" placeholder="请输入用户名">
 
-            <input name="password" type="password" id="password" placeholder="请输入密码"/>
+            <input name="password" id="password" type="password" id="password" placeholder="请输入密码"/>
             <input value="登录" style="width:100%;" type="submit">
-            <span style="color:red;font-size:16px">${errormsg}</span>
+            <span id="errorMsg" style="color:red;font-size:16px">${errormsg}</span>
         </form>
     </div>
     <div class="copyright">-------河南工程学院-------</div>
