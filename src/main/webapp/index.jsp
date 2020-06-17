@@ -16,13 +16,16 @@
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
         $(function(){
-            ${"#userName"}.on("focus",function () {
+            $("#userName").on("focus",function(){
                 $("#errorMsg").fadeOut();
             });
-            ${"#password"}.on("focus",function () {
+            $("#password").on("focus",function(){
                 $("#errorMsg").fadeOut();
             });
-        })
+            $("#_img").on("click",function(){
+                $(this).attr("src","login/verify?"+new Date());
+            });
+        });
     </script>
 </head>
 
@@ -38,6 +41,10 @@
             <input name="username" id="userName" type="text" value="${username}" onfocus="this.value=''" placeholder="请输入用户名">
 
             <input name="password" id="password" type="password" id="password" placeholder="请输入密码"/>
+            <input name="verifyCode" id="verifyCode" type="text" id="verifyCode" placeholder="请输入验证码"
+                   style="width: 60%"
+            />
+            <img id="_img" src="login/verify" style="width: 110px; height:50px; margin-left: 10px;position: absolute" title="点击切换"/>
             <input value="登录" style="width:100%;" type="submit">
             <span id="errorMsg" style="color:red;font-size:16px">${errormsg}</span>
         </form>
