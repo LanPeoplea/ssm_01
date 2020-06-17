@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 使用接口扫描方式来访问数据库，一定要保持namespace和类名相同 -->
+<mapper namespace="lanpeople.dao.UserDao">
+
+    <!-- mybatis orm -->
+    <resultMap id="STUDENTMAP" type="lanpeople.pojo.User">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="sex" property="sex" />
+        <result column="address" property="address" />
+    </resultMap>
+
+    <!-- 测试返回pojo对象 此处代表数据库表中字段和java pojo类中的字段名字有不相同情况  -->
+    <select id="queryAll" resultMap="STUDENTMAP">
+        select * from users
+    </select>
+
+    <select id="queryById" parameterType="java.lang.String" resultMap="STUDENTMAP">
+        select * from users where id=#{id}
+    </select>
+
+    <!-- 新增信息 -->
+    <insert id="add" parameterType="lanpeople.pojo.User">
+        insert into users (name,sex,address) values(#{name},#{sex},#{address})
+    </insert>
+    <!-- 删除信息 -->
+    <delete id="delete" parameterType="java.lang.String" >
+        delete from users where id=#{value}
+    </delete>
+
+    <update id="update" parameterType="lanpeople.pojo.User">
+        update users
+        <set>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="sex!=null and sex!=''">
+                sex=#{sex},
+            </if>
+            <if test="address!=null and address!=''">
+                address=#{address},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+</mapper>

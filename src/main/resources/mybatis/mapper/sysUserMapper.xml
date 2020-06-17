@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 使用接口扫描方式来访问数据库，一定要保持namespace和类名相同 -->
+<mapper namespace="lanpeople.dao.SysUserDao">
+
+    <resultMap id="SYSUSERMAP" type="lanpeople.pojo.SysUser">
+        <result column="userId" property="user_id" />
+        <result column="loginName" property="login_name" />
+        <result column="password" property="password" />
+        <result column="lastLoginTime" property="last_login_time" />
+        <result column="lastLoginIp" property="last_login_ip" />
+    </resultMap>
+
+    <select id="queryByLoginName" parameterType="java.lang.String" resultMap="SYSUSERMAP">
+        select * from sys_user where login_name=#{value }
+    </select>
+</mapper>
