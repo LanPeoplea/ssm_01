@@ -9,7 +9,7 @@
 <head>
     <base href="<%=basePath %>">
     <meta charset="UTF-8">
-    <title>后台模板</title>
+    <title>后台管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
@@ -44,7 +44,7 @@
     <div class="layui-header">
         <!-- logo区域 -->
         <div class="jqadmin-logo-box">
-            <a class="logo" href="http://jqadmin.jqcool.net" title="jQAdmin">
+            <a class="logo" href="http://jqadmin.jqcool.net" title="Admin">
                 <h1>jQadmin</h1>
             </a>
             <div class="menu-type"><i class="iconfont">&#xe61a;</i></div>
@@ -52,8 +52,7 @@
 
         <!-- 主菜单区域 -->
         <div class="jqadmin-main-menu" style="overflow:hidden;">
-
-            <%--<ul class="layui-nav clearfix" id="menu" lay-filter="main-menu" >
+            <ul class="layui-nav clearfix" id="menu" lay-filter="main-menu" >
                 <script id="menu-tpl" type="text/html" data-params='{"url":"<%=basePath %>login/queryMenu.do","listid":"menu"}'>
                     {{# layui.each(d.list, function(index, item){ }}
                     <li class="layui-nav-item {{# if(index==0){ }}layui-this{{# } }}">
@@ -66,7 +65,7 @@
                     </li>
                     {{# }); }}
                 </script>
-            </ul>--%>
+            </ul>
         </div>
 
         <!-- 头部右侧导航 -->
@@ -99,25 +98,24 @@
                 <li data-name="home" class="layui-nav-item">
                     <a href="javascript:;" lay-tips="主页" lay-direction="2">
                         <i class="layui-icon layui-icon-home"></i>
-                        <cite>主页</cite>
+                        <cite>信息管理</cite>
                         <span class="layui-nav-more"></span>
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console" class="">
-                            <a lay-href="home/console.html">控制台</a>
+                            <a lay-href="user/toAdd">增加</a>
                         </dd>
                         <dd data-name="console" class="">
-                            <a lay-href="home/homepage1.html">主页一</a>
+                            <a lay-href="home/homepage1.html">删除</a>
                         </dd>
                         <dd data-name="console" class="">
-                            <a lay-href="home/homepage2.html">主页二</a>
+                            <a lay-href="home/homepage2.html">修改</a>
                         </dd>
                     </dl>
                 </li>
             </ul>
         </div>
     </div>
-
     <!-- 左侧侧边导航结束 -->
     <!-- 右侧主体内容 -->
     <div class="layui-body jqadmin-body">
@@ -126,7 +124,7 @@
             <ul class="layui-tab-title">
                 <li class="layui-this" id="admin-home" lay-id="0" fresh=1><i class="iconfont">&#xe622;</i><em>后台首页</em></li>
             </ul>
-            <div class="menu-btn" title="显示左则菜单">
+            <div class="menu-btn" title="显示左侧菜单">
                 <i class="iconfont">&#xe616;</i>
             </div>
             <div class="tab-move-btn">
@@ -147,8 +145,7 @@
     <div class="layui-footer jqadmin-foot">
         <div class="layui-mian">
             <p class="jqadmin-copyright">
-                <span class="layui">2019 &copy;</span>
-                河南工程学院,<a href="http://www.baidu.com">2020</a>. 版权所有
+                <a href="https://github.com/LanPeoplea/ssm_01">lanpeople&nbsp;020/06/ssm</a>
                 <span class="layui">依赖前端框架layui</span>
             </p>
         </div>

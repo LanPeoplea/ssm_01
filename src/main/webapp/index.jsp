@@ -40,8 +40,8 @@
         <form method="post" action="login/doLogin">
             <input name="username" id="userName" type="text" value="${username}" onfocus="this.value=''" placeholder="请输入用户名">
 
-            <input name="password" id="password" type="password" id="password" placeholder="请输入密码"/>
-            <input name="verifyCode" id="verifyCode" type="text" id="verifyCode" placeholder="请输入验证码"
+            <input name="password" id="password" type="password" value="${password}" placeholder="请输入密码"/>
+            <input name="verifyCode" id="verifyCode" type="text" placeholder="请输入验证码"
                    style="width: 60%"
             />
             <img id="_img" src="login/verify" style="width: 110px; height:50px; margin-left: 10px;position: absolute" title="点击切换"/>

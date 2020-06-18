@@ -24,7 +24,8 @@ public class UserFirstController {
     public String queryAll(Model model){
         List<User> list = dao.queryAll();
         model.addAttribute("users",list);
-        return "user/user";
+//        return "user/user";
+        return "user/studentList";
     }
     @RequestMapping("delete")
     @ResponseBody
@@ -62,5 +63,4 @@ public class UserFirstController {
         int rst = dao.add(user);
         return "redirect:queryall";
     }
-
 }

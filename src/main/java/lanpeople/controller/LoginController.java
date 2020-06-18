@@ -22,7 +22,7 @@ public class LoginController {
     private SysUserDao dao;
 
     @RequestMapping("doLogin")
-    public String doLogin(String username, String password, ModelMap model){
+    public String doLogin(String username, String password,String verifyCode,HttpSession session, ModelMap model){
         if (username == null || "".equals(username)){
                 model.addAttribute("errormsg","请输入用户名!");
                 return "../../index";
@@ -30,6 +30,20 @@ public class LoginController {
         if (password == null || "".equals(password)){
             model.addAttribute("username",username);
             model.addAttribute("errormsg","请输入密码!");
+            return "../../index";
+        }
+        //验证码校验
+        if (verifyCode == null || "".equals(verifyCode)){
+            model.addAttribute("username",username);
+            model.addAttribute("password",password);
+            model.addAttribute("errormsg","请输入验证码!");
+            return "../../index";
+        }
+        String sessionVerifyCode = (String)session.getAttribute("verifyCode");
+        if (!verifyCode.equalsIgnoreCase(sessionVerifyCode)){
+            model.addAttribute("username",username);
+            model.addAttribute("password",password);
+            model.addAttribute("errormsg","验证码错误!");
             return "../../index";
         }
         SysUser sysUser = dao.queryByLoginName(username);
@@ -43,7 +57,10 @@ public class LoginController {
             model.addAttribute("errormsg","密码错误!");
             return "../../index";
         }
-        return "main";
+
+
+//        return "main";
+        return "backstage";
     }
     /**
      * 图片验证码
